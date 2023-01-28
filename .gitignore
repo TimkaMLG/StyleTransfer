@@ -130,3 +130,7 @@ dmypy.json
 
 # Telegram bot token
 tg_token.py
+
+# Ignore photos
+*.jpg
+*.png
