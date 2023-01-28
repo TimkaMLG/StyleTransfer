@@ -1,0 +1,6 @@
+asyncio~=3.4.3
+telebot~=0.0.4
+numpy~=1.24.1
+torch~=1.13.1
+Pillow~=9.4.0
+setuptools~=66.1.1
