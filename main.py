@@ -46,17 +46,17 @@ Use "Help" button to see this text.""")
         flag_action[str(message.chat.id)] = 2
         await bot.reply_to(message, """Now send me second photo.""")
     elif message.text == 'Get result photo':
-        path = 'model/' + str(message.chat.id) + '/file_'
+        path = 'chats/' + str(message.chat.id) + '/file_'
         flag_first[str(message.chat.id)] = os.path.exists(path + '1.jpg')
         flag_second[str(message.chat.id)] = os.path.exists(path + '2.jpg')
         if flag_first[str(message.chat.id)] and flag_second[str(message.chat.id)]:
             result_message = await bot.send_message(message.chat.id, '<i>Working with your photos...</i>',
                                                     parse_mode='HTML',
                                                     disable_web_page_preview=True)
-            get_predict(path + '1.jpg', path + '2.jpg', 'model/' + str(message.chat.id) + '/result.jpg')
+            get_predict(path + '1.jpg', path + '2.jpg', 'chats/' + str(message.chat.id) + '/result.jpg')
             await bot.edit_message_text(chat_id=message.chat.id, message_id=result_message.id, text='<i>Done!</i>',
                                         parse_mode='HTML')
-            with open('model/' + str(message.chat.id) + '/result.jpg', 'rb') as new_file:
+            with open('chats/' + str(message.chat.id) + '/result.jpg', 'rb') as new_file:
                 await bot.send_photo(message.chat.id, new_file)
         elif not flag_first[str(message.chat.id)] and not flag_second[str(message.chat.id)]:
             await bot.reply_to(message, """Please send me first and second photos.""")
@@ -79,7 +79,7 @@ async def receive_photo(message):
                                                 disable_web_page_preview=True)
         file_path = await bot.get_file(message.photo[-1].file_id)
         downloaded_file = await bot.download_file(file_path.file_path)
-        path = 'model/' + str(message.chat.id)
+        path = 'chats/' + str(message.chat.id)
         if not os.path.exists(path):
             os.mkdir(path)
         with open(path + '/file_' + str(flag_action[str(message.chat.id)]) + '.jpg', 'wb') as new_file:
