@@ -21,6 +21,11 @@ I used [pyTelegramBotApi](https://github.com/eternnoir/pyTelegramBotAPI) framewo
 While working with bot, users photos are stored in the [chats](https://github.com/TimkaMLG/StyleTransfer/tree/main/chats) folder in subfolders with chat_id names.
 The bots code is in [main.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/main.py).
 
+<p align="center">
+  <img src="examples/for_readme_1.PNG" width="400" title="Intro">
+  <img src="examples/for_readme_2.PNG" width="400" title="Help">
+</p>
+
 Setup
 --------
 To launch the bot, you should get a unique token [here](https://t.me/BotFather). Next, put it in the [main.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/main.py) in line number 9 instead of `token = get_token()` write `token = <YOUR TOKEN>`.
