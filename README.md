@@ -5,15 +5,21 @@ At the time of publication of this text the bot is running on [VK Cloud](https:/
 
 Model
 ----------
-For transferring style I chose [MSG-Net](https://github.com/zhanghang1989/PyTorch-Multi-Style-Transfer) implemented by [zhanghang1989](https://github.com/zhanghang1989). It is already pre-trained and small enough to work out in a few seconds per image. A little bit corrected for my perposes code is placed in [model.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/model.py). 
-Examples can be found in the [examples](https://github.com/TimkaMLG/StyleTransfer/tree/main/examples) folder.
+For transferring style I chose [MSG-Net](https://github.com/zhanghang1989/PyTorch-Multi-Style-Transfer) implemented by [zhanghang1989](https://github.com/zhanghang1989). It is already pre-trained and small enough to work out in a few seconds per image. A little bit corrected for my purposes code is placed in [model.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/model.py). 
+Photo examples can be found in the [examples](https://github.com/TimkaMLG/StyleTransfer/tree/main/examples) folder.
 The pre-trained weights of the model are placed in [21styles.model](https://github.com/TimkaMLG/StyleTransfer/blob/main/21styles.model).
+
+<p align="center">
+  <img src="examples/candy.jpg" width="350" title="First photo">
+  <img src="examples/venice-boat.jpg" width="560" title="Second photo">
+  <img src="examples/output.jpg" width="560" title="Result photo">
+</p>
 
 Bot
 ------
-I used [pyTelegramBotApi](https://github.com/eternnoir/pyTelegramBotAPI) framework for the bot. It was chosen because it is quite simple and flexible, and also allows to write asynchronous code, which is very useful for Telegram bots. The intuitive interface of the bot is implemented using buttons, there is also a detailed instruction for the user how to work with the bot.
-While working with the bot, user photos are stored in the [chats](https://github.com/TimkaMLG/StyleTransfer/tree/main/chats) folder in subfolders with chat_id names.
-The bot code is in [main.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/main.py).
+I used [pyTelegramBotApi](https://github.com/eternnoir/pyTelegramBotAPI) framework for the bot. It was chosen because it is quite simple and flexible, and also allows to write asynchronous code, which is very useful for Telegram bots. The intuitive interface of the bot is implemented using buttons, there is also detailed instruction for the user how to work with bot.
+While working with bot, users photos are stored in the [chats](https://github.com/TimkaMLG/StyleTransfer/tree/main/chats) folder in subfolders with chat_id names.
+The bots code is in [main.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/main.py).
 
 Setup
 --------
@@ -37,14 +43,16 @@ If you have troubles with installation, then try installing without the cache di
 `$ python3 main.py`
 
 Module installation:
+-------------------
 
-By file [setup.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/setup.py) it is possible to build a package in wheel, for this you should enter:
+By file [setup.py](https://github.com/TimkaMLG/StyleTransfer/blob/main/setup.py) it is possible to build a package wheel, for this you should use:
 
 `$ python3 setup.py sdist bdist_wheel`
 
 Next, the assembled package will appear in the dist folder.
 
 Docker installation:
+--------------------
 
 it is also possible to build a docker container using the Dockerfile:
 
